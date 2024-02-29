@@ -12,8 +12,6 @@ class Transaction {
     }
   }
 }
-//const money = new Transaction(100);
-
 // Customer
 class Customer {
   constructor(name, id) {
@@ -108,10 +106,10 @@ class Bank {
   checkBranch(branch) {
     return this.branches.includes(branch);
   }
-  // not done :|
-  listCustomers(branch) {
-    // console.log()
-    // listCustomers(branch: Branch, includeTransactions: boolean): void Description: Prints out a list of customers with their transaction details if includeTransactions is true.
+  listCustomers(branch, includeTransactions) {
+    if (this.branches.includes(branch)) {
+       branch.listCustomers(includeTransactions);
+    }
   }
 }
 
