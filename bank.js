@@ -107,9 +107,7 @@ class Bank {
     return this.branches.includes(branch);
   }
   listCustomers(branch, includeTransactions) {
-    if (this.branches.includes(branch)) {
-       branch.listCustomers(includeTransactions);
-    }
+    branch.listCustomers(includeTransactions);
   }
 }
 
