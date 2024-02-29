@@ -3,7 +3,7 @@ class Transaction {
   constructor(amount) {
     try {
       if (amount < 0) {
-        throw 'Transaction Can not be negative number !';
+        throw "Transaction Can not be negative number!";
       }
       this.amount = amount;
       this.date = new Date();
@@ -64,10 +64,10 @@ class Branch {
     const customer = this.customers.find(
       (customer) => customer.id === customerId
     );
-    if (customer){
+    if (customer) {
       customer.addTransactions(amount);
       return true;
-    }else {
+    } else {
       return false;
     }
   }
@@ -85,23 +85,28 @@ class Bank {
       return result > 0 ? true : false;
     }
   }
-// not done :|
   addCustomer(branch, customer) {
-    // if(this )
+    if (this.branches.includes(branch)) {
+      return branch.addCustomer(customer);
+    } else {
+      return false;
+    }
   }
-  // not done :|
   addCustomerTransaction(branch, customerId, amount) {
-   
+    if (this.branches.includes(branch)) {
+      return branch.addCustomerTransaction(customerId, amount);
+    } else {
+      return false;
+    }
   }
-    // not done :|
-  findBranchByName(BranchName) {
-    // return this.branches.filter(branch => branch.f )
+  findBranchByName(branchName) {
+    const matchBranches = this.branches.filter(
+      (branch) => branch.name === branchName
+    );
+    return matchBranches.length > 0 ? matchBranches : null;
   }
-  // not done :|
   checkBranch(branch) {
-    // const bank =
-    // if (branch === )
-    // Returns true if the branch belongs to the bank or false otherwise.
+    return this.branches.includes(branch);
   }
   // not done :|
   listCustomers(branch) {
@@ -120,7 +125,7 @@ class Bank {
 
 // arizonaBank.addBranch(westBranch)
 // arizonaBank.addBranch(sunBranch)
-// arizonaBank.addBranch(westBranch) 
+// arizonaBank.addBranch(westBranch)
 
 // arizonaBank.findBranchByName("bank")
 // arizonaBank.findBranchByName("sun")
