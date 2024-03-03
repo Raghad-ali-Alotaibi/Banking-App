@@ -58,8 +58,9 @@ class Branch {
         if (!this.customers.includes(customer)) {
             const result = this.customers.push(customer);
             return result > 0 ? true : false;
-        }
-    }
+        } else
+        return false;
+}
     addCustomerTransaction(customerId, amount) {
         const customer = this.customers.find((customer) => customer.id === customerId);
         if (customer) {
@@ -117,7 +118,7 @@ class Bank {
     listCustomers(branch, includeTransactions) {
         if (this.branches.includes(branch)) {
             if (includeTransactions) {
-                return branch.customers;
+                console.log(branch.customers);
             }
             else {
                 branch.customers.map((customer, object) => (object = { id: customer.id, name: customer.name }));
