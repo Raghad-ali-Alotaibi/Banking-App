@@ -68,7 +68,7 @@ class Branch {
     if (!this.customers.includes(customer)) {
       const result = this.customers.push(customer);
       return result > 0 ? true : false;
-    } else return false;
+    } return false;
   }
   addCustomerTransaction(customerId: number, amount: number) {
     const customer = this.customers.find(
