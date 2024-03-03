@@ -89,6 +89,8 @@ class Bank {
             const result = this.branches.push(branch);
             return result > 0 ? true : false;
         }
+        else
+            return false;
     }
     addCustomer(branch, customer) {
         if (this.branches.includes(branch)) {

@@ -98,12 +98,13 @@ class Transaction {
       this.name = name;
       this.branches = [];
     }
-    addBranch(branch: Branch) {
-      if (!this.branches.includes(branch)) {
-        const result = this.branches.push(branch);
-        return result > 0 ? true : false;
+    addBranch(branch:Branch):boolean{
+      if(!this.branches.includes(branch)){
+          const result:number = this.branches.push(branch);
+          return result > 0 ? true : false;
       }
-    }
+      else return false;
+  }
     addCustomer(branch: Branch, customer: Customer) {
       if (this.branches.includes(branch)) {
         return branch.addCustomer(customer);
