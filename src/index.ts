@@ -64,13 +64,13 @@ class Branch {
   getCustomers() {
     return this.customers;
   }
-  addCustomer(customer: Customer) {
+  addCustomer(customer: Customer): boolean {
     if (!this.customers.includes(customer)) {
       const result = this.customers.push(customer);
       return result > 0 ? true : false;
     } return false;
   }
-  addCustomerTransaction(customerId: number, amount: number) {
+  addCustomerTransaction(customerId: number, amount: number): boolean {
     const customer = this.customers.find(
       (customer) => customer.id === customerId
     );
@@ -104,14 +104,14 @@ class Bank {
     }
     return false;
   }
-  addCustomer(branch: Branch, customer: Customer) {
+  addCustomer(branch: Branch, customer: Customer): boolean {
     if (this.branches.includes(branch)) {
       return branch.addCustomer(customer);
     } else {
       return false;
     }
   }
-  addCustomerTransaction(branch: Branch, customerId: number, amount: number) {
+  addCustomerTransaction(branch: Branch, customerId: number, amount: number): boolean {
     if (this.branches.includes(branch)) {
       return branch.addCustomerTransaction(customerId, amount);
     } else {
