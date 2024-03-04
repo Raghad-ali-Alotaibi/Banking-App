@@ -121,10 +121,10 @@ class Bank {
   findBranchByName(branchName: string) {
     return this.branches.find((branch) => branch.name === branchName);
   }
-  checkBranch(branch: Branch) {
+  checkBranch(branch: Branch): boolean {
     return this.branches.includes(branch);
   }
-  listCustomers(branch: Branch, includeTransactions: boolean) {
+  listCustomers(branch: Branch, includeTransactions: boolean):void {
     if (this.branches.includes(branch)) {
       if (includeTransactions) {
         console.log(branch.customers);
